@@ -1,4 +1,4 @@
-	location /snapdrop/ {
+	location /filedrop/ {
 		proxy_pass http://localhost:3180/;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header Host $host;
