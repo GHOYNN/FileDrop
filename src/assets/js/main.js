@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 	// Uses the URL to get the IP address and port of the server.
 	let ip = getIP();
 	let port = getPort();
-	let url = `${getProtocol()}//${ip}:${port}`;
+	let url = window.location.origin;
+
 
 	// The main page's background has 3 different gradients that can be changed.
 	let gradientStops = {
@@ -53,7 +54,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 	};
 
 	// Connect to the server via web socket, and attach the appropriate event listeners/handlers.
-	let socket = io.connect(url);
+	console.log(url);
+	let socket = io.connect(url, {path:window.location.pathname+'socket.io/'});
 	attach(socket);
 
 	// Get DOM elements.
